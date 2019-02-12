@@ -1,38 +1,33 @@
-#Headless browser option
-browser:
-  phantomjs: "phantomjs"
-  # slimerjs: "slimerjs"
+imports: "spider_paths.yaml"
 
-#If you want to have multiple snapping files, set the file name here
-snap_file: "javascript/snap.js"
+#Headless browser option
+browser: "phantomjs"
 
 # Type the name of the directory that shots will be stored in
-directory: 'shots'
+directory: "shots"
 
 # Add only 2 domains, key will act as a label
 domains:
-  english: "http://www.live.bbc.co.uk/news"
-  russian: "http://www.live.bbc.co.uk/russian"
+ personal: "http://ashton.codes"
+ business: "http://webdapper.com"
 
 #Type screen widths below, here are a couple of examples
 screen_widths:
-  - 320
-  - 600
-  - 768
-  - 1024
-  - 1280
-
-#Type page URL paths below, here are a couple of examples
-paths:
-  home: /
-  uk_index: /uk
+ - 320
+ - 600
+ - 768x1500 # you can also specify the height, as we've done here
+ - 1024
+ - 1280
 
 #Amount of fuzz ImageMagick will use
-fuzz: '20%'
+fuzz: "20%"
 
-#Set the number of days to keep the site spider file
-spider_days:
-  - 10
+#A list of URLs to skip when spidering. Ruby regular expressions can be
+#used, if prefixed with !ruby/regexp as defined in the YAML Cookbook
+#http://www.yaml.org/YAML_for_ruby.html#regexps
+# spider_skips:
+#   - /foo/bar.html # Matches /foo/bar.html explcitly
+#   - !ruby/regexp /^\/baz\// # Matches any URLs that start with /baz
 
 #Choose how results are displayed, by default alphanumeric. Different screen widths are always grouped.
 #alphanumeric - all paths (with, and without, a difference) are shown, sorted by path
@@ -40,4 +35,4 @@ spider_days:
 #diffs_only - only paths with a difference are shown, sorted by difference size (largest first)
 mode: diffs_first
 
-threshold: 5
+threshold: 15
